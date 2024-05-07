@@ -18,8 +18,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUserById(int userId) {
-        Optional<User> optionalUser = userRepository.findById(userId);
+    public User getUserById(String username) {
+        Optional<User> optionalUser = userRepository.findByUsername(username);
         return optionalUser.orElse(null);
     }
 
@@ -37,5 +37,10 @@ public class UserService {
 
     public void deleteUser(int userId) {
         userRepository.deleteById(userId);
+    }
+
+    public boolean Login(String username, String password) {
+        Optional<User> optionalUser = userRepository.findByUsernameAndPassword(username, password);
+        return optionalUser.isPresent(); // Returns true if user exists, false otherwise
     }
 }
