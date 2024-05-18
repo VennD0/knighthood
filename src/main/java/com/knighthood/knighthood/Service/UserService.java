@@ -18,9 +18,14 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUserById(String username) {
+    public User getUserByusername(String username) {
         Optional<User> optionalUser = userRepository.findByUsername(username);
         return optionalUser.orElse(null);
+    }
+
+    public User getUserByuserid(int id) {
+        User optionalUser = userRepository.findByUserid(id);
+        return optionalUser;
     }
 
     public User createUser(User user) {
@@ -29,7 +34,7 @@ public class UserService {
 
     public User updateUser(int userId, User user) {
         if (userRepository.existsById(userId)) {
-            user.setUser_id(userId); 
+            user.setUserid(userId);; 
             return userRepository.save(user);
         }
         return null;

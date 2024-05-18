@@ -1,5 +1,6 @@
 package com.knighthood.knighthood.Model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -15,6 +16,9 @@ public class Score {
     @Id
     @GeneratedValue
     private int score_id;
-    private int user_id;
+
+    @Column(name = "user_id")
+    private int userid;
+    
     private int score;
 }

@@ -38,4 +38,9 @@ public class ScoreController {
     public void deleteScore(@PathVariable("id") int id) {
         scoreService.deleteScore(id);
     }
+
+    @GetMapping("/user/{user_id}")
+    public List<Score> getScoresByUserId(@PathVariable("user_id") int userId) {
+        return scoreService.getScoresByUserId(userId);
+    }
 }

@@ -37,4 +37,8 @@ public class ScoreService {
     public void deleteScore(int id) {
         scoreRepository.deleteById(id);
     }
+
+    public List<Score> getScoresByUserId(int userId) {
+        return scoreRepository.findByuserid(userId);
+    }
 }
